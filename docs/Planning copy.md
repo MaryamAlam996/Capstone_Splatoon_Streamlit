@@ -11,45 +11,33 @@ I have chosen to base my capstone project on analyzing the strategies used by co
 
 ## What is Splatoon?
 
-<!-- Section 1: What is Splatoon -->
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
-  <img src="S3_first_twitter_preview_-_spawners.jpg" alt="Spawners" width="280">
-  <div>
-    <p style="margin-top: 0;">
-      Splatoon is an online multiplayer shooter developed by Nintendo. In this game you play as either an Inkling or an Octoling in online 4v4 battles.
-    </p>
-    <p>
-      There are multiple modes, with the main casual mode being Turf War and the more competitive modes being Splat Zones, Rainmaker, Tower Control, and Clam Blitz.
-    </p>
+<div style="overflow: auto; margin-bottom: 0px;">
+  <img src="S3_first_twitter_preview_-_spawners.jpg" alt="Left image" width="280" style="float: left; margin-right: 10px;">
+  <div style="margin-top: 30px;">
+    Splatoon is an online multiplayer shooter developed by nintendo. In this game you play as either an inkling or an octoling in online 4v4 battles. There are multiple modes with the main casual mode being turf war and the more competitive modes being splat zones, rain maker, tower control and clam blitz.
   </div>
 </div>
 
-<!-- Section 2: Weapons -->
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px; gap: 20px;">
-  <img src="2.png" alt="Weapons" width="280">
-  <div>
-    <p style="margin-top: 0;">
-      The game has 11 weapon classes and a total of 143 weapon kits to choose from, where each main weapon comes with a predefined sub weapon and special weapon.
-    </p>
-    <p>
-      There are 14 different sub weapons and 19 different special weapons in the game.
-    </p>
+
+<div style="overflow: auto; margin-top: 40px; margin-bottom: 0px;">
+  <img src="2.png" alt="Left image" width="280" style="float: left; margin-right: 10px;">
+  <div style="margin-top: 30px;">
+    The game has 11 weapon classes and a total of 143 weapon kits to choose from where each main weapon comes with a predefined sub weapon and special weapon. There are 14 different sub weapons and 19 different special weapons in the game.
   </div>
 </div>
 
-<!-- Section 3: Gear -->
-<div style="display: flex; align-items: flex-start; gap: 20px;">
-  <img src="1.png" alt="Gear" width="280">
+
+<div style="overflow: auto; margin-top: 40px; margin-bottom: 30px;">
+  <img src="1.png" alt="Left image" width="280" style="float: left; margin-right: 10px;">
   <div>
     <p style="margin-top: 0; margin-bottom: 15px;">
-      Along with choosing a weapon, players can also choose their gear which includes headgear, clothing, and shoes. Each piece of gear comes with abilities which apply effects that can help the player in battle. For example, "Run Speed Up" increases the player's speed when running.
+      Along with choosing a weapon, players can also choose their gear which includes headgear, clothing, and shoes. Each piece of gear comes with abilities which apply effects which can help the player in battle. For example, "Run Speed Up" increases the player's speed when running.
     </p>
     <p>
-      A majority of these abilities can be stacked to increase their effect. The effect of a stackable ability is tracked with AP (Ability Points), with a main ability being worth 10 AP and a sub ability being worth 3 AP. Non-stackable abilities usually have a unique effect and only appear as the main ability on one type of gear (for example, the ability "Stealth Jump" only appears on shoes).
+      A majority of these abilities can be stacked to increase their effect. The effect of a stackable ability is tracked with AP (Ability Points), with a main ability being worth 10 AP and a sub ability being worth 3 AP. Non-stackable abilities usually have a more unique effect and only appear as the main ability on one type of gear (for example, the ability "Stealth Jump" only appears on shoes).
     </p>
   </div>
 </div>
-
 
 <div style="max-width: 100%; margin: 0 auto; display: flex; justify-content: space-between; gap: 10px; flex-wrap: nowrap;">
   <img src="S3_Splatfest_World_Premiere_Weapon_promo.jpg" alt="Left image" style="width: 48%; height: auto;">
