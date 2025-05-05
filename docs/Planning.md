@@ -6,23 +6,23 @@ I have chosen to base my capstone project on analyzing the strategies used by co
 As someone who plays the game casually, I have a very limited knowledge of the game's competitive scene.  
 One area I am curious about is **gear builds**, which is what I will be focusing my analysis on.
 
-<img src="S3_art_3D_teams_yellow_vs_blue.png" alt="Teams Yellow vs Blue" width="600"/>
+<img src="S3_art_3D_teams_yellow_vs_blue.png" alt="Teams Yellow vs Blue"/>
 
 ## What is Splatoon?
 
-<img src="S3_first_twitter_preview_-_spawners.jpg" alt="Spawners" width="400"/>
+<img src="S3_first_twitter_preview_-_spawners.jpg" alt="Spawners" width="300"/>
 
 **Splatoon** is an online multiplayer shooter developed by Nintendo.  
 In this game, you play as either an Inkling or an Octoling in online 4v4 battles.  
 There are multiple modes with the main casual mode being **Turf War** and the more competitive modes being **Splat Zones**, **Rainmaker**, **Tower Control**, and **Clam Blitz**.
 
-<img src="2.png" alt="Weapons" width="400"/>
+<img src="2.png" alt="Weapons" width="300"/>
 
 The game has **11 weapon classes** and a total of **143 weapon kits** to choose from.  
 Each main weapon comes with a predefined **sub weapon** and **special weapon**.  
 There are **14 different sub weapons** and **19 different special weapons** in the game.
 
-<img src="1.png" alt="Gear" width="400"/>
+<img src="1.png" alt="Gear" width="300"/>
 
 Along with choosing a weapon, players can also choose their **gear**, which includes headgear, clothing, and shoes.  
 Each piece of gear comes with abilities that apply effects to help the player in battle, for example *"Run Speed Up"* increases a player's speed when running.
@@ -41,7 +41,7 @@ Non-stackable abilities usually have unique effects and only appear as the **mai
   <img src="S3_Gear_Abilities_promo.jpg" alt="Gear Abilities Promo" width="45%" style="display: inline-block;">
 </p>
 
-
+---
 
 
 ## Analysis
