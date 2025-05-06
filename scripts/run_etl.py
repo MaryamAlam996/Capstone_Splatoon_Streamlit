@@ -1,19 +1,21 @@
 import os
 import sys
+
 from config.env_config import setup_env
+
 
 
 def main():
     print("hello!")
     
-    #run_env_setup()
+    run_env_setup()
 
-    # print(
-    #     f"ETL pipeline run successfully in "
-    #     f'{os.getenv("ENV", "error")} environment!'
-    # )
+    print(
+          f"ETL pipeline run successfully in "
+          f'{os.getenv("ENV", "error")} environment!'
+      )
 
-
+#
 def run_env_setup():
     print("Setting up environment...")
     setup_env(sys.argv)
