@@ -14,7 +14,6 @@ coverage==7.8.0
 debugpy==1.8.14
 decorator==5.2.1
 diff_cover==9.2.4
--e git+https://github.com/MaryamAlam996/Capstone_Splatoon_Streamlit.git@adc05ec572d398ba8171cebb1f8032a86f301498#egg=etl_example
 executing==2.2.0
 flake8==7.2.0
 gitdb==4.0.12
@@ -74,8 +73,6 @@ setuptools==78.1.0
 six==1.17.0
 smmap==5.0.2
 soupsieve==2.7
--e git+https://github.com/MaryamAlam996/Capstone_Splatoon_Streamlit.git@adc05ec572d398ba8171cebb1f8032a86f301498#egg=Splatoon_Streamlit
-SQLAlchemy==2.0.40
 sqlfluff==3.3.1
 stack-data==0.6.3
 streamlit==1.45.0

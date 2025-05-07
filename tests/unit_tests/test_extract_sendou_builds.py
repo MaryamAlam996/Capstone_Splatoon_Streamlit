@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import requests
 from unittest.mock import patch
 from requests.exceptions import Timeout, RequestException
+from bs4 import BeautifulSoup
 
 from etl.extract.extract_sendou_builds import make_request
 from etl.extract.extract_sendou_builds import weapon_build_paths
@@ -87,3 +88,11 @@ def test_search_for_build_path_if_href_is_for_build_text_none(href, expected_url
     
 
 # FINISHED TESTING search_for_build_path()
+
+
+# START TESTING weapon_build_paths()
+
+
+# testing that when number of paths and weapon names are equal 
+# it returns both of these
+# INSERT TEST HERE

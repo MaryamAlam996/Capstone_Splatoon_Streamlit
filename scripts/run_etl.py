@@ -4,23 +4,17 @@ import sys
 from config.env_config import setup_env
 from etl.extract.extract import extract_data
 
+
 def main():
     print("hello!")
-    
     print(extract_data())
-    
-    #run_env_setup()
+    run_env_setup()
 
-    # print(
-    #       f"ETL pipeline run successfully in "
-    #       f'{os.getenv("ENV", "error")} environment!'
-    #   )
-    
-    
-    
-    
-    
-    
+    print(
+          f"ETL pipeline run successfully in "
+          f'{os.getenv("ENV", "error")} environment!'
+      )
+
 
 def run_env_setup():
     print("Setting up environment...")
