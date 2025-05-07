@@ -2,9 +2,12 @@ import os
 import sys
 
 from config.env_config import setup_env
+from etl.extract.extract import extract_data
 
 def main():
     print("hello!")
+    
+    print(extract_data())
     
     #run_env_setup()
 
@@ -19,7 +22,6 @@ def main():
     
     
 
-#
 def run_env_setup():
     print("Setting up environment...")
     setup_env(sys.argv)

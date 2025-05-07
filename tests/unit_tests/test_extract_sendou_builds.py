@@ -1,0 +1,27 @@
+import pytest
+from unittest.mock import patch, Mock
+from bs4 import BeautifulSoup
+import requests
+from etl.extract.extract_sendou_builds import make_request
+import pytest
+from unittest.mock import patch
+from requests.exceptions import Timeout, RequestException
+
+# testing successful request (test code from web scraping repo)
+@patch('requests.get')   
+def test_make_request_success(mock_get):
+    mock_get.return_value.status_code = 200 # returns OK status code
+    make_request('https://www.google.com/') # mock HTML
+    mock_get.assert_called_once_with('https://www.google.com/', timeout=10)
+   
+# testing handling of unsuccessful request (test code from web scraping repo)
+@patch('requests.get') 
+def test_make_request_fail(mock_get):
+
+    with patch('requests.get') as mock_get:
+        mock_get.return_value.status_code = 404
+        result = make_request('https://www.google.com/')
+        assert result == {
+            "status": "error",
+            "error": "Request failed as status code is not 200"
+        }

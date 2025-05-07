@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-import time
+
+from etl.extract.extract import make_request
 
 
 # defining constants:
@@ -14,7 +15,7 @@ SENDOU_BASE_URL = 'https://sendou.ink'
 # function that returns the data extracted from sendou as a data frame
 
 def extract_sendou_data():
-    # call function that returns a list of paths to each weapon's page of builds
+    # call function that returns a list of paths to each weapon's page of builds and a list of weapon names
     # call function returns the dataframe
     return None
 
@@ -22,7 +23,7 @@ def extract_sendou_data():
 # function to find paths for weapon build pages
 def weapon_build_paths():
     # making a request to 'https://sendou.ink/builds'
-    soup = BeautifulSoup(make_request(SENDOU_BUILDS_URL).text, 'html.parser')
+    soup = make_request(SENDOU_BUILDS_URL)
     
     paths = [] # empty list for storing paths
     weapon_names = [] # empty list for storing weapon names
@@ -39,14 +40,10 @@ def weapon_build_paths():
                 # if it is add the link to the list (add to the end of the base path first)
                 path = SENDOU_BASE_URL + href
                 paths.append(path)
-                
                 # also find the text of the link (with strip remove whitespaces)
-                text = link.get_text(strip=True)
-                # add this to the list of weapon names (if not none)
-                if text is not None:
-                    weapon_names.append(text)
-                # brief pause between each path retrieval (avoid overwhelming the website)
-                time.sleep(0.1)
+                # add this to the list of weapon names
+                weapon_names.append(link.get_text(strip=True))
+                
     #print(len(paths))
     #print(len(weapon_names))
     return paths, weapon_names
@@ -59,21 +56,3 @@ def create_weapon_build_df():
     return None
 
 
-# function that takes in a site, makes a request then returns the response
-def make_request(URL):
-    try:
-        # sending a get request to a URL, wait 10 seconds max for a response
-        response = requests.get(URL, timeout=10) 
-        if response.status_code != 200: # if the status code is not ok, return an error
-            return {
-                "status": "error",
-                "error": "Request failed as status code is not 200"
-            }
-        # if succesful return response
-        return response
-    except Exception: 
-        # return an error if something else goes wrong with the request
-        return {
-            "status": "error",
-            "error": "An unknown error has occurred"
-        }
