@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from etl.extract.extract_sendou_builds import make_request
 from etl.extract.extract_sendou_builds import weapon_build_paths
 from etl.extract.extract_sendou_builds import search_for_build_path
-
+from etl.extract.extract_sendou_builds import add_to_list
 
 
 # START TESTING search_for_build_path()
@@ -96,3 +96,33 @@ def test_search_for_build_path_if_href_is_for_build_text_none(href, expected_url
 # testing that when number of paths and weapon names are equal 
 # it returns both of these
 # INSERT TEST HERE
+
+
+# FINISHED TESTING weapon_build_paths()
+
+
+# START TESTING add_to_list()
+
+# testing to see if the function appends to the list if element not none
+def test_add_to_list_not_none():
+    # Arrange
+    the_list = ['existing_elm'] # example of a list
+    the_elm = 'not_null_elm' # example of a valid element we want to add
+    expected_output = ['existing_elm', 'not_null_elm'] # what the list should look like
+    # Action
+    actual_output = add_to_list(the_list, the_elm) # the list the function actually returns
+    # Assert
+    assert actual_output == expected_output # check to see if they are the same
+    
+# testing to see if the function does not append to the list if the element is none
+def test_add_to_list_none():
+    # Arrange
+    the_list = ['existing_elm'] # example of a list
+    the_elm = None # example of a invalid element we don't want to add
+    expected_output = ['existing_elm'] # what the list should look like
+    # Action
+    actual_output = add_to_list(the_list, the_elm) # the list the function actually returns
+    # Assert
+    assert actual_output == expected_output # check to see if they are the same
+
+

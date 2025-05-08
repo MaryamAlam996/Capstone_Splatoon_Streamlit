@@ -5,7 +5,7 @@ import requests
 from unittest.mock import patch
 from requests.exceptions import Timeout, RequestException
 
-from etl.extract.extract_sendou_builds import make_request
+from etl.extract.extract import make_request
 from etl.extract.extract_sendou_builds import weapon_build_paths
 from etl.extract.extract_sendou_builds import search_for_build_path
 
