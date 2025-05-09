@@ -13,7 +13,7 @@ ALL_WEAPONS_SITE = (
 
 
 # function to extract all the needed data from inkepedia
-def extract_inkepedia():
+def extract_inkipedia():
     weapon_details_df = extract_weapon_details()
     return weapon_details_df
 
