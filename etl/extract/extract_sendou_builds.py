@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 # import requests
 import time
 import pandas as pd
-from etl.extract.extract import make_request
+from etl.extract.url_request import make_request
 
 # defining constants:
 SENDOU_BUILDS_URL = "https://sendou.ink/builds"
@@ -15,6 +15,8 @@ DF_COLUMNS = [
     'Main_3', 'Sub_7', 'Sub_8', 'Sub_9',
     'game_modes'
 ]
+
+TESTING_MODE = True
 
 
 # function that returns the data extracted from sendou as a data frame
@@ -37,7 +39,10 @@ def weapon_build_paths():
     weapon_names = []  # empty list for storing weapon names
 
     all_links = soup.find_all("a")  # list of all hyperlinks on the page
-
+    # --------- for testing -----------
+    if TESTING_MODE is True:
+        all_links = all_links[:10]
+    # ---------------------------------
     # loop through all the links
     for link in all_links:
         # call function that if the link is for a build
