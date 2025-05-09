@@ -11,16 +11,16 @@ from unittest.mock import patch
 from requests.exceptions import Timeout, RequestException
 
 from etl.extract.url_request import make_request
-from etl.extract.extract_inkipidia import extract_inkipedia
-from etl.extract.extract_inkipidia import scrape_weapon_details
-from etl.extract.extract_inkipidia import scrape_row
-from etl.extract.extract_inkipidia import reshaping_weapon_details
+from etl.extract.extract_inkipedia import extract_inkipedia
+from etl.extract.extract_inkipedia import scrape_weapon_details
+from etl.extract.extract_inkipedia import scrape_row
+from etl.extract.extract_inkipedia import reshaping_weapon_details
 
 
 # START TESTING extract_inkepedia()
 
 # test if def extract_inkipedia() returns a dataframe
-@patch('etl.extract.extract_inkipidia.extract_weapon_details')
+@patch('etl.extract.extract_inkipedia.extract_weapon_details')
 def test_def_extract_inkipedia(mock_extract_weapons):
     # Arrange
     # An empty array as an example of an input
@@ -41,7 +41,7 @@ def test_def_extract_inkipedia(mock_extract_weapons):
 # START TESTING scrape_weapon_details():
 
 # testing if function returns a list
-@patch('etl.extract.extract_inkipidia.scrape_row')
+@patch('etl.extract.extract_inkipedia.scrape_row')
 def test_scrape_weapon_details(mock_scrape_row):
     # Arrange
     mock_soup = Mock() # mock soup
