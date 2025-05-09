@@ -99,7 +99,7 @@ def create_weapon_build_df(path_list, weapon_list):
         # pause for each path
         time.sleep(1)
         # if count > 10:
-        #     break
+        #      break
         # make request to the path
         path_soup = BeautifulSoup(make_request(path + '?limit=500').text,
                                   "html.parser")
@@ -126,8 +126,9 @@ def scrape_all_builds(path_soup, weapon_list, count):
         # scrape each build
         ability_list, mode_list = scrape_a_build(build)
         # use the lists created to add a new row to the dataframe
-        df_weapon_builds.loc[len(df_weapon_builds)] = [weapon_list[count]]
-        + ability_list + [mode_list]
+        df_weapon_builds.loc[len(df_weapon_builds)] = (
+            [weapon_list[count]] + ability_list + [mode_list]
+        )
     # return all builds for that weapon
     return df_weapon_builds
 

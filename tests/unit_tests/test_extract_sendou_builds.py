@@ -1,16 +1,21 @@
 import pytest
-from unittest.mock import patch, Mock
+from unittest.mock import patch, Mock, MagicMock
 from bs4 import BeautifulSoup
 import requests
 from unittest.mock import patch
 from requests.exceptions import Timeout, RequestException
 from bs4 import BeautifulSoup
+import pandas as pd
 
 from etl.extract.extract_sendou_builds import make_request
 from etl.extract.extract_sendou_builds import weapon_build_paths
 from etl.extract.extract_sendou_builds import search_for_build_path
 from etl.extract.extract_sendou_builds import add_to_list
-
+from etl.extract.extract_sendou_builds import scrape_a_build
+from etl.extract.extract_sendou_builds import scrape_all_builds
+from etl.extract.extract_sendou_builds import extract_modes
+from etl.extract.extract_sendou_builds import extract_abilities
+from etl.extract.extract_sendou_builds import create_weapon_build_df
 
 # START TESTING search_for_build_path()
 
@@ -124,5 +129,130 @@ def test_add_to_list_none():
     actual_output = add_to_list(the_list, the_elm) # the list the function actually returns
     # Assert
     assert actual_output == expected_output # check to see if they are the same
+
+# END TESTING add_to_list()
+
+# START TESTING scrape_a_build()
+
+# Test to check if scrape_a_build returns two lists
+# patch is used to replace the return value of these functions
+@patch('etl.extract.extract_sendou_builds.extract_modes')
+@patch('etl.extract.extract_sendou_builds.extract_abilities')   
+def test_scrape_a_build(mock_extract_modes, mock_extract_abilities):
+    # Arrange
+    mock_build = Mock() # mock object
+    # When calling the function extract_modes return this!
+    mock_extract_modes.return_value = ['item_3', 'item_4'] 
+    # When calling the function extract_abilities return this!
+    mock_extract_abilities.return_value = ['item_1', 'item_2'] 
+    expected_output = (['item_3', 'item_4'], ['item_1', 'item_2']) # what the lists should look like
+    # Action
+    actual_output = scrape_a_build(mock_build) # the lists the function actually return
+    # Assert
+    assert actual_output == expected_output # check to see if they are the same
+    
+# FINISHED TESTING scrape_a_build()
+
+# START TESTING extract_abilities()
+
+# Test to check if extract_abilities returns a list
+def test_extract_abilities():
+    # Arrange
+    # an example of an ability (as html)
+    ex_ability_html = '<div class="build__ability readonly"><img alt="Opening Gambit" src="/static-assets/img/abilities/OG.png"/></div>'
+    # --- Assistance from ChatGPT ---
+    ex_ability = BeautifulSoup(ex_ability_html, 'html.parser').div  # Create a Tag object
+    mock_build = Mock()
+    # When finding the abilities use this instead
+    mock_build.find_all.return_value = [ex_ability, ex_ability] 
+    # --------------------------------
+    expected_output = ['Opening Gambit', 'Opening Gambit'] # what the list should look like
+    # Action
+    actual_output = extract_abilities(mock_build) # the list the function actually return
+    # Assert
+    assert actual_output == expected_output # check to see if they are the same
+
+# END TESTING extract_abilities()
+
+# START TESTING extract_modes()
+
+# Test to check if extract_modes() returns a list when modes is found
+def test_extract_modes():
+    # Arrange
+    # an example of modes (as html)
+    ex_modes_html = '<div class="build__modes"><img alt="Splat Zones" src="/static-assets/img/modes/SZ.png"/><img alt="Tower Control" src="/static-assets/img/modes/TC.png"/><img alt="Rainmaker" src="/static-assets/img/modes/RM.png"/><img alt="Clam Blitz" src="/static-assets/img/modes/CB.png"/></div>'
+    # --- Assistance from ChatGPT ---
+    ex_modes = BeautifulSoup(ex_modes_html, 'html.parser').div  # Create a Tag object
+    mock_build = Mock()
+    # When finding the mode list use this instead
+    mock_build.find.return_value = ex_modes
+    # --------------------------------
+    expected_output = ['Splat Zones', 'Tower Control', 'Rainmaker','Clam Blitz'] # what the list should look like
+    # Action
+    actual_output = extract_modes(mock_build) # the list the function actually returns
+    # Assert
+    assert actual_output == expected_output # check to see if they are the same
+     
+# Test to check if extract_modes() returns ['NO MODES LISTED'] when modes is None
+def test_extract_modes_none():
+    # Arrange
+    # --- Assistance from ChatGPT ---
+    mock_build = Mock()
+    # When finding the mode list use this (None)
+    mock_build.find.return_value = None  
+    # --------------------------------
+    expected_output = ['NO MODES LISTED'] # what the list should look like
+    # Action
+    actual_output = extract_modes(mock_build) # the list the function actually returns
+    # Assert
+    assert actual_output == expected_output # check to see if they are the same
+
+# END TESTING extract_modes()
+
+# START TESTING scrape_all_builds()
+
+# --- Assistance from ChatGPT to help write this function ---
+# testing to see if this returns a dataframe where each row is a build
+@patch('etl.extract.extract_sendou_builds.scrape_a_build')
+def test_scrape_all_builds(mock_scrape_build):
+    # Arrange
+    mock_path_soup = Mock() # mock for the path soup
+    mock_weapon_list = MagicMock() # mock for the weapon list
+    mock_count = Mock() # mock for the placement in the weapon list
+    # When weapon_list[count] is called return this instead:
+    mock_weapon_list.__getitem__.return_value = "Mocked Weapon name"
+    # when path_soup.find_all is called to get a list of builds use this instead
+    # simulate a weapon having 4 builds
+    mock_path_soup.find_all.return_value = [Mock(), Mock(), Mock(), Mock()]
+    # each build when scraped will return this
+    mock_scrape_build.return_value = (['ability1','ability2','ability3','ability4','ability5','ability6','ability7','ability8','ability9','ability10','ability11','ability12'], ['mode1','mode2'])
+    # Action
+    actual_output = scrape_all_builds(mock_path_soup, mock_weapon_list, mock_count) # the object the function returns
+    # Assert  
+    # Check if the returned object is a DataFrame
+    assert isinstance(actual_output, pd.DataFrame)
+    # Check if the dataframe has the right amount of entries
+    assert len(actual_output) == 4
+ # ----------------------------------------------------------
+
+# END TESTING scrape_all_builds()
+
+# START TESTING create_weapon_build_df()
+# @patch('etl.extract.extract.make_request')
+# @patch('bs4.BeautifulSoup')
+# def test_create_weapon_build_df(mock_request, mock_soup_call):
+#     # Arrange
+#     path_list = [Mock(), Mock()]
+#     weapon_list = [Mock(), Mock()]
+#     mock_soup_call.return_value = Mock()
+#     mock_request.return_value = Mock()
+    
+#     # Action
+#     create_weapon_build_df(path_list, weapon_list)
+    
+    
+
+# END TESTING create_weapon_build_df()
+    
 
 
