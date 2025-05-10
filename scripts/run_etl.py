@@ -8,10 +8,10 @@ from etl.extract.extract import extract_data
 def main():
     print("hello!")
     builds_df, weapons_df = extract_data()
-    print('Data Frame of builds:')
-    print(builds_df)
-    print('Data Frame of weapon details:')
-    print(weapons_df)
+    # print('Data Frame of builds:')
+    # print(builds_df)
+    # print('Data Frame of weapon details:')
+    # print(weapons_df)
     run_env_setup()
 
     print(

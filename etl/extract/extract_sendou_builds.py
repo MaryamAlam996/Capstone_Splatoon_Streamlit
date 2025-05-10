@@ -16,7 +16,7 @@ DF_COLUMNS = [
     'game_modes'
 ]
 
-TESTING_MODE = True
+TESTING_MODE = False
 
 
 # function that returns the data extracted from sendou as a data frame
@@ -24,9 +24,13 @@ def extract_sendou_data():
     # call function that returns a
     # lists of paths to each weapon's page of builds
     # and it's weapon name
+    print("Finding each weapon's page to scrape builds...")
     path_list, weapon_list = weapon_build_paths()
+    print("Done! Found " + str(len(path_list)) + " pages!")
     # call function returns the dataframe for all builds
+    print("Now extracting the builds...")
     df_builds = create_weapon_build_df(path_list, weapon_list)
+    print("Done! Created a builds dataframe!")
     return df_builds
 
 
@@ -123,7 +127,7 @@ def scrape_all_builds(path_soup, weapon_list, count):
     # data frame for all builds for a weapon
     df_weapon_builds = pd.DataFrame(columns=DF_COLUMNS)
     # message to show what weapon we are currently obtaining info from
-    print("Scraping builds for: " + weapon_list[count])
+    print("Extracting builds for: " + weapon_list[count])
     # finds all the builds on the page
     build_entries = path_soup.find_all('div',  class_='build')
     # loops through these
@@ -135,6 +139,7 @@ def scrape_all_builds(path_soup, weapon_list, count):
             [weapon_list[count]] + ability_list + [mode_list]
         )
     # return all builds for that weapon
+    print('\t' +  str(len(build_entries)) + " builds found")
     return df_weapon_builds
 
 

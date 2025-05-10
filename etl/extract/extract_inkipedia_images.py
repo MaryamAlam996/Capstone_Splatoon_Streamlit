@@ -14,7 +14,7 @@ ALL_WEAPONS_SITE = (
 
 BASE_PATHS = 'https://splatoonwiki.org'  # Base URL for the Splatoon wiki
 
-TEST_MODE = True
+TEST_MODE = False
 
 
 # function to extract all main wain weapon images as
@@ -35,8 +35,13 @@ def extract_main_weapon_images(w_names):
     image_path_list = find_all_weapon_urls(session, path_list, w_names)
     print("-----------------------------------------")
     print("Done!")
-    # return the list off images found
-    return image_path_list
+    # check if list of images length matches weapon list length
+    if len(image_path_list) == len(w_names):
+        # return the list off images found
+        return image_path_list
+    else:
+        # raise an error otherwise
+        raise Exception("Weapon list and image url list lengths don't match")
 
 
 # function to find paths to each weapon page

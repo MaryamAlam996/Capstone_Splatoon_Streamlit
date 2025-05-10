@@ -9,5 +9,5 @@ def extract_data():
     weapons_df = extract_inkipedia()
     w_names = weapons_df['Name']
     main_weapon_images = extract_main_weapon_images(w_names)
-    print(main_weapon_images)
+    # print(main_weapon_images)
     return builds_df, weapons_df
