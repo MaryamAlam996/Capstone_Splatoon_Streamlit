@@ -14,7 +14,7 @@ ALL_WEAPONS_SITE = (
 
 BASE_PATHS = 'https://splatoonwiki.org'  # Base URL for the Splatoon wiki
 
-TEST_MODE = False
+TEST_MODE = True
 
 
 # function to extract all main wain weapon images as
@@ -35,6 +35,11 @@ def extract_main_weapon_images(w_names):
     image_path_list = find_all_weapon_urls(session, path_list, w_names)
     print("-----------------------------------------")
     print("Done!")
+    # -------------------------
+    # for testing
+    if TEST_MODE and len(image_path_list) > 4:
+        return image_path_list
+    # -------------------------
     # check if list of images length matches weapon list length
     if len(image_path_list) == len(w_names):
         # return the list off images found
@@ -58,7 +63,7 @@ def find_all_weapon_pages(session, w_names):
     # --------------------------------------
     # for testing do this
     if TEST_MODE is True:
-        weapons = weapons[:100]
+        weapons = weapons[:35]
     # --------------------------------------
     # looping through the list of paths (with a progress bar)
     for w in tqdm(weapons, desc="Finding weapon pages", unit="weapon"):

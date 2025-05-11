@@ -38,6 +38,7 @@ def test_extract_main_weapon_images(mock_image_list, mock_path_list, mock_sessio
     assert expected_output == actual_output # compare
     
 # testing to see for when the weapon name list and image url list are equal
+
 @patch('etl.extract.extract_inkipedia_images.start_session')
 @patch('etl.extract.extract_inkipedia_images.find_all_weapon_pages')
 @patch('etl.extract.extract_inkipedia_images.find_all_weapon_urls')

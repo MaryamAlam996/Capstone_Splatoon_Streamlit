@@ -16,7 +16,7 @@ DF_COLUMNS = [
     'game_modes'
 ]
 
-TESTING_MODE = False
+TESTING_MODE = True
 
 
 # function that returns the data extracted from sendou as a data frame
@@ -45,7 +45,7 @@ def weapon_build_paths():
     all_links = soup.find_all("a")  # list of all hyperlinks on the page
     # --------- for testing -----------
     if TESTING_MODE is True:
-        all_links = all_links[:10]
+        all_links = all_links[:7]
     # ---------------------------------
     # loop through all the links
     for link in all_links:
@@ -139,7 +139,7 @@ def scrape_all_builds(path_soup, weapon_list, count):
             [weapon_list[count]] + ability_list + [mode_list]
         )
     # return all builds for that weapon
-    print('\t' +  str(len(build_entries)) + " builds found")
+    print('\t' + str(len(build_entries)) + " builds found")
     return df_weapon_builds
 
 

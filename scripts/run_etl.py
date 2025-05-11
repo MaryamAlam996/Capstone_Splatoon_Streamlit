@@ -21,6 +21,7 @@ def main():
 
 
 def run_env_setup():
+    print("\n")
     print("Setting up environment...")
     setup_env(sys.argv)
     print("Environment setup complete.")
