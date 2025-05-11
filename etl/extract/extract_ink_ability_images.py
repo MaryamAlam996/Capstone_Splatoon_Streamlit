@@ -20,8 +20,16 @@ def extract_ability_images(df_builds):
     # add these to the original ability dataframe
     abilities_df = create_ability_df(abilities_df, image_urls)
     print("Done! " + str(abilities_df.shape[0]) + "/26 images found")
-    # return the completed abilities dataframe
-    return abilities_df
+    # check the length
+    if abilities_df.shape[0] == 26:
+        # return the completed abilities dataframe
+        return abilities_df
+    else:
+        raise Exception(
+            "Error: Abilities data frame only has " +
+            str(abilities_df.shape[0]) +
+            " abilities, some are missing"
+        )
 
 
 # function that using the builds dataframe find all possible ability names
