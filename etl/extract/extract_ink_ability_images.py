@@ -19,7 +19,7 @@ def extract_ability_images(df_builds):
     image_urls = find_all_ability_images()
     # add these to the original ability dataframe
     abilities_df = create_ability_df(abilities_df, image_urls)
-    print("Done! " + str(abilities_df.shape[0]) + "/26 images found")
+    print("\x1b[32mDone! " + str(abilities_df.shape[0]) + "/26 \x1b[32mimages found\x1b[0m")
     # check the length
     if abilities_df.shape[0] == 26:
         # return the completed abilities dataframe

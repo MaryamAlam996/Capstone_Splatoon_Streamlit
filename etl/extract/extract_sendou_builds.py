@@ -24,13 +24,13 @@ def extract_sendou_data():
     # call function that returns a
     # lists of paths to each weapon's page of builds
     # and it's weapon name
-    print("Finding each weapon's page to scrape builds...")
+    print("\nFinding each weapon's page to scrape builds...")
     path_list, weapon_list = weapon_build_paths()
-    print("Done! Found " + str(len(path_list)) + " pages!")
+    print("\n\x1b[32mDone! Found " + str(len(path_list)) + "\x1b[32m pages!\x1b[0m")
     # call function returns the dataframe for all builds
-    print("Now extracting the builds...")
+    print("\nNow extracting the builds...")
     df_builds = create_weapon_build_df(path_list, weapon_list)
-    print("Done! Created a builds dataframe!")
+    print("\n\x1b[32mDone! " + str(df_builds.shape[0]) + "\x1b[32m total builds found!\x1b[0m")
     return df_builds
 
 
@@ -126,8 +126,10 @@ def create_weapon_build_df(path_list, weapon_list):
 def scrape_all_builds(path_soup, weapon_list, count):
     # data frame for all builds for a weapon
     df_weapon_builds = pd.DataFrame(columns=DF_COLUMNS)
+    # --- Assistance from ChatGPT ---------------------------------------
     # message to show what weapon we are currently obtaining info from
-    print("Extracting builds for: " + weapon_list[count])
+    print("Extracting builds for: \x1b[34m" + weapon_list[count].ljust(30) + "\x1b[0m[" + str(count+1).rjust(3) + "/130]")
+    # -------------------------------------------------------------------
     # finds all the builds on the page
     build_entries = path_soup.find_all('div',  class_='build')
     # loops through these
@@ -139,7 +141,7 @@ def scrape_all_builds(path_soup, weapon_list, count):
             [weapon_list[count]] + ability_list + [mode_list]
         )
     # return all builds for that weapon
-    print('\t' + str(len(build_entries)) + " builds found")
+    print('\x1b[35m>>>  ' + str(len(build_entries)) + " builds found  <<<\x1b[0m")
     return df_weapon_builds
 
 
