@@ -19,7 +19,9 @@ def extract_specials_images(df_weapons):
     image_urls = find_all_special_images()
     # add these to the original specials dataframe
     special_weapons_df = create_special_df(special_weapons_df, image_urls)
-    print("\x1b[32mDone! " + str(special_weapons_df.shape[0]) + "/19 \x1b[32mimages found\x1b[0m")
+    print(
+        "\x1b[32mDone! " +
+        str(special_weapons_df.shape[0]) + "/19 \x1b[32mimages found\x1b[0m")
     # check the length
     if special_weapons_df.shape[0] == 19:
         # return the completed abilities dataframe
@@ -67,6 +69,11 @@ def find_all_special_images():
 # if so add to the list or urls
 def find_special_image(img, image_urls):
     src = img.get('src')
+    # Check if the 'src' attribute exists and contains 'Special'
+    # We also want to exclude the 'Rainmaker' as its not
+    # actually a special
+    # also we want 'Triple splashdown' but not regular 'splashdown'
+    # as it is not used online
     if src and 'Special' in src and 'Rainmaker' not in src:
         if 'Splashdown' not in src:
             image_urls.append('https:' + src)

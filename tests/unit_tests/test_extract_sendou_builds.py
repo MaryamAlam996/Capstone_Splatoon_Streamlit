@@ -218,7 +218,7 @@ def test_scrape_all_builds(mock_scrape_build):
     # Arrange
     mock_path_soup = Mock() # mock for the path soup
     mock_weapon_list = MagicMock() # mock for the weapon list
-    mock_count = Mock() # mock for the placement in the weapon list
+    mock_count = 0 # mock for the placement in the weapon list
     # When weapon_list[count] is called return this instead:
     mock_weapon_list.__getitem__.return_value = "Mocked Weapon name"
     # when path_soup.find_all is called to get a list of builds use this instead

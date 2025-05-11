@@ -30,10 +30,10 @@ def extract_main_weapon_images(w_names):
     path_list = find_all_weapon_pages(session, w_names)
     print("\x1b[32mDone!\x1b[0m\n")
     print("Now finding the main weapon images...")
-    print("-----------------------------------------")
+    # print("-----------------------------------------")
     # calls a function that returns the image urls as a
     image_path_list = find_all_weapon_urls(session, path_list, w_names)
-    print("-----------------------------------------")
+    # print("-----------------------------------------")
     # -------------------------
     # for testing
     if TEST_MODE and len(image_path_list) > 4:
@@ -140,7 +140,8 @@ def find_all_weapon_urls(session, path_list, w_names):
     # print a message when done to show how many images where found
     # compared to how many we need
     print(
-        "\n\x1b[32mDone! " + str(len(image_path_list)) + "/" + str(len(w_names))
+        "\n\x1b[32mDone! " + str(len(image_path_list)) +
+        "/" + str(len(w_names))
         + "\x1b[32m weapon images found\x1b[0m"
     )
     # return the complete list
