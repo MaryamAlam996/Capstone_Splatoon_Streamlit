@@ -14,7 +14,7 @@ ALL_WEAPONS_SITE = (
 
 BASE_PATHS = 'https://splatoonwiki.org'  # Base URL for the Splatoon wiki
 
-TEST_MODE = True
+TEST_MODE = False
 
 
 # function to extract all main wain weapon images as

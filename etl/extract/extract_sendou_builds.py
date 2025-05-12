@@ -16,7 +16,7 @@ DF_COLUMNS = [
     'game_modes'
 ]
 
-TESTING_MODE = True
+TESTING_MODE = False
 
 
 # function that returns the data extracted from sendou as a data frame

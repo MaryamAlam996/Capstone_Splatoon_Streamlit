@@ -3,15 +3,26 @@ import sys
 
 from config.env_config import setup_env
 from etl.extract.extract import extract_data
+from etl.extract.df_and_csv import extract_to_csv
+
+DO_EXTRACT = True
 
 
 def main():
-    print("hello!")
-    builds_df, weapons_df = extract_data()
-    # print('Data Frame of builds:')
-    # print(builds_df)
-    # print('Data Frame of weapon details:')
-    # print(weapons_df)
+    if DO_EXTRACT:
+        print("\nBEGIN EXTRACTING:")
+        (
+            builds_df, weapons_df, ability_img_df,
+            special_img_df, sub_img_df, weapon_img_df
+        ) = extract_data()
+        print("\nFINISHED EXTRACTING:\n")
+        extract_to_csv([
+            builds_df, weapons_df, ability_img_df,
+            special_img_df, sub_img_df, weapon_img_df
+        ])
+    else:
+        print("\nSkipped extraction")
+
     run_env_setup()
 
     print(
