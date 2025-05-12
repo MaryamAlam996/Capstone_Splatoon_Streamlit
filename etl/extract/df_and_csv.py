@@ -11,7 +11,8 @@ def extract_to_csv(df_list):
     # --
     # create a list of file names (in the correct order)
     file_names = ['builds', 'weapons',
-                  'ability_img', 'special_img', 'sub_img', 'weapon_img']
+                  'ability_img', 'special_img', 'sub_img',
+                  'weapon_img', 'class_img']
     # --- Assistance from ChatGPT -----------------
     # either access or create a folder called data
     folder = Path('Data')
