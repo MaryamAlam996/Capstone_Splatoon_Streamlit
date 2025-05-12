@@ -13,12 +13,12 @@ def main():
         print("\nBEGIN EXTRACTING:")
         (
             builds_df, weapons_df, ability_img_df,
-            special_img_df, sub_img_df, weapon_img_df
+            special_img_df, sub_img_df, weapon_img_df, class_img_df
         ) = extract_data()
         print("\nFINISHED EXTRACTING:\n")
         extract_to_csv([
             builds_df, weapons_df, ability_img_df,
-            special_img_df, sub_img_df, weapon_img_df
+            special_img_df, sub_img_df, weapon_img_df, class_img_df
         ])
     else:
         print("\nSkipped extraction")

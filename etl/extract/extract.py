@@ -5,6 +5,7 @@ from etl.extract.extract_inkipedia_images import extract_main_weapon_images
 from etl.extract.extract_ink_ability_images import extract_ability_images
 from etl.extract.extract_ink_special_images import extract_specials_images
 from etl.extract.extract_ink_sub_images import extract_subs_images
+from etl.extract.extract_ink_class_images import extract_classes_images
 
 
 # function extract all data from sendou and inkepedia
@@ -23,11 +24,13 @@ def extract_data():
     special_img_df = extract_specials_images(weapons_df)
     # extract sub weapon images as a dataframe
     sub_img_df = extract_subs_images(weapons_df)
+    # extract weapon class images as a dataframe
+    class_img_df = extract_classes_images(weapons_df)
     # convert main weapon url list ot a dataframe
     weapon_img_df = edit_main_weapon_images(w_names, main_weapon_images)
     # print(main_weapon_images)
     return (builds_df, weapons_df, ability_img_df,
-            special_img_df, sub_img_df, weapon_img_df)
+            special_img_df, sub_img_df, weapon_img_df, class_img_df)
 
 
 # function to convert the series of weapons to a dataframe with urls
