@@ -1,11 +1,12 @@
-import os
+
 import sys
 
 from config.env_config import setup_env
 from etl.extract.extract import extract_data
 from etl.extract.df_and_csv import extract_to_csv
+from etl.transform.transform import transform_data
 
-DO_EXTRACT = True
+DO_EXTRACT = False
 
 
 def main():
@@ -23,12 +24,16 @@ def main():
     else:
         print("\nSkipped extraction")
 
-    run_env_setup()
+    print("\nBEGIN TRANSFORMING:\n")
+    transform_data()
+    print("\nFINISHED TRANSFORMING:\n")
 
-    print(
-          f"ETL pipeline run successfully in "
-          f'{os.getenv("ENV", "error")} environment!'
-      )
+    # run_env_setup()
+
+    # print(
+    #       f"ETL pipeline run successfully in "
+    #       f'{os.getenv("ENV", "error")} environment!'
+    #   )
 
 
 def run_env_setup():
