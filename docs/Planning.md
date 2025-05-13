@@ -114,11 +114,12 @@ Examples of analytical questions I would like to answer by the end of the projec
    - Remove weapon repeats (weapons which are reskins of other weapons)
 2. Standardize
    - Convert special points to numeric values
-   - Convert the lists of game modes to true and false columns for each mode
 3. Aggregate
-   - Create a data frame that for each main weapon calculates the average amount of subs of each ability
-   - Create a data frame that for each main weapon calculates the average amount of mains of each ability
-   - (Can go further by calculating the average AP points for each stackable ability including subs and mains)
+   - Change representation of abilities in the dataframe from Mains and Subs to individual ability columns
+   - For trackable abilities calculate the APs
+   - Calculate means for abilities across all builds
+   - Calcualte means for abilities grouped by Weapon, Sub Weapon, Special Weapon and Weapon Class
+   - Calculate total builds for different modes (also group by weapon)
 4. Enrich
    - Add the weapon details to each weapon build
    - also add image urls for each weapon (main, sub, special and weapon class) 

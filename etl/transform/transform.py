@@ -8,4 +8,4 @@ def transform_data():
     weapons_df = transform_weapons_df("data")
     print("\n\n")
     build_df_tuple = transform_builds_df(weapons_df, "data")
-    # print(weapons_df)
+    return weapons_df, build_df_tuple

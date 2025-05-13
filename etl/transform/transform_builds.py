@@ -26,7 +26,7 @@ def transform_builds_df(weapons_df, data_path):
 
 # function to clean builds dataframe
 def clean_builds_df(builds_df):
-    print("\x1b[34mCleaning builds \x1b[36mdataframe...")
+    print("\x1b[34mCleaning \x1b[36mbuilds dataframe...")
     # remove all builds with 'Ability doubler'
     # this ability only appears during splatfest and
     # so cannot be used in regular battles
@@ -72,7 +72,7 @@ def clean_builds_df(builds_df):
 
 # enrich builds by adding the weapon details from the weapon df
 def enrich_builds_df(builds_df, weapons_df):
-    print("\x1b[34mEnriching builds \x1b[36mdataframe...")
+    print("\x1b[34mEnriching \x1b[36mbuilds dataframe...")
     builds_df_2 = builds_df.copy()
     builds_df_2 = pd.merge(
         builds_df, weapons_df, left_on='Weapon_name', right_on='Name',
@@ -97,7 +97,7 @@ def enrich_builds_df(builds_df, weapons_df):
 
 # function to create aggregate dfs from builds df
 def aggregate_builds_df(builds_df):
-    print("\x1b[34mAggregating builds \x1b[36mdataframe...")
+    print("\x1b[34mAggregating \x1b[36mbuilds dataframe...")
     # call this function to create 2 aggregate dfs
     (AP_builds_df, Ability_builds_df) = Ability_dataframes(builds_df)
     print("\x1b[0m" + "-" * 80)
