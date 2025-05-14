@@ -4,7 +4,7 @@ import requests
 from io import BytesIO
 
 from app.Utils.colors import class_to_big_splat
-from app.Utils.colors import class_to_small_splat
+# from app.Utils.colors import class_to_small_splat
 
 
 # function to show the images related to each selected main weapon
@@ -15,7 +15,7 @@ def Show_Class_Image(class_img, w_class):
     st.markdown("<br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image(C_img , width=300)
+        st.image(C_img, width=300)
 
     # st.image(C_img, width=300)
     st.markdown("<br>", unsafe_allow_html=True)

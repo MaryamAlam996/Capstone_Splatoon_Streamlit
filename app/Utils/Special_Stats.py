@@ -11,7 +11,8 @@ def Show_Special_Stats(selected_Special, colour1, colour2):
 # function to show the stats for abilities for a weapon Special
 def Show_Ability_Stats(selected_Special, colour1, colour2):
     # load the data
-    all_ability_stats_df = pd.read_csv("../data/Special_Weapon_ability_means.csv")
+    all_ability_stats_df = pd.read_csv(
+        "../data/Special_Weapon_ability_means.csv")
     # Only get data of the chosen weapon
     ability_stats_df = all_ability_stats_df[
         all_ability_stats_df['Special_Weapon'] == selected_Special

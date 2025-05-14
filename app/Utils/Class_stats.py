@@ -11,7 +11,8 @@ def Show_Class_Stats(selected_class, colour1, colour2):
 # function to show the stats for abilities for a weapon class
 def Show_Ability_Stats(selected_class, colour1, colour2):
     # load the data
-    all_ability_stats_df = pd.read_csv("../data/Weapon_Class_ability_means.csv")
+    all_ability_stats_df = pd.read_csv(
+        "../data/Weapon_Class_ability_means.csv")
     # Only get data of the chosen weapon
     ability_stats_df = all_ability_stats_df[
         all_ability_stats_df['Class'] == selected_class

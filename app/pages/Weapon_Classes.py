@@ -39,7 +39,6 @@ Builds_count = ability_stats_df.iloc[0]
 Builds_count = Builds_count.iloc[-1]
 
 
-
 # Styling for the block
 block_style = (
     f"display: inline-block; width: 100%; padding: 25px; border-radius: 8px; "
@@ -49,7 +48,8 @@ block_style = (
 # Full-width block within a container
 with st.container():
     bold_text = (
-        "<p style='font-size: 24px; margin: 0; color: #ffffff; font-weight: bold;'>"
+        "<p style='font-size: 24px; margin: 0;"
+        "color: #ffffff; font-weight: bold;'>"
         "Number of weapons in this class:</p>"
     )
     normal_text = (
@@ -62,6 +62,3 @@ with st.container():
     )
 
 Show_Class_Stats(selected_class, block_colour, block_colour_2)
-
-
-# st.dataframe(df)

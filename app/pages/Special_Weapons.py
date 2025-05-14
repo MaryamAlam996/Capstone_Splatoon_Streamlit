@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
 # import os
-from app.Utils.colors import class_to_colour
-from app.Utils.colors import class_to_colour_2
+# from app.Utils.colors import class_to_colour
+# from app.Utils.colors import class_to_colour_2
 from app.Utils.Special_image import Show_Special_Image
 from app.Utils.Special_Stats import Show_Special_Stats
 # load data
@@ -29,7 +29,6 @@ w_special = selected_Special_data['Special'].iloc[0]
 Show_Special_Image(Special_img)
 
 
-
 # Styling for the block
 block_style = (
     f"display: inline-block; width: 100%; padding: 25px; border-radius: 8px; "
@@ -39,7 +38,8 @@ block_style = (
 # Full-width block within a container
 with st.container():
     bold_text = (
-        "<p style='font-size: 24px; margin: 0; color: #ffffff; font-weight: bold;'>"
+        "<p style='font-size: 24px; margin: 0;"
+        "color:#ffffff; font-weight: bold;'>"
         "Number of weapons that use this Special:</p>"
     )
     normal_text = (
@@ -52,6 +52,3 @@ with st.container():
     )
 
 Show_Special_Stats(selected_Special, block_colour, block_colour_2)
-
-
-# # st.dataframe(df)

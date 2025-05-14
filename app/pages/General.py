@@ -3,8 +3,6 @@ import streamlit as st
 import plotly.express as px
 
 
-
-
 # function to show the stats for abilities for all weapons
 def Show_Ability_Stats(selected_Sub, colour1, colour2):
     # load the data
@@ -33,7 +31,7 @@ def Show_Ability_Stats(selected_Sub, colour1, colour2):
     # for showing ability points for trackable abilities
     fig = px.bar(track_abilities_df,
                  x='Abilities', y='Ability Points (AP)',
-                 title=f"Average ability points for all weapons",
+                 title="Average ability points for all weapons",
                  color='Ability Points (AP)',
                  color_continuous_scale=[colour1, colour2])
     # fig.update_traces(marker_color=colour2)

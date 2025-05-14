@@ -7,7 +7,6 @@ from app.Utils.Main_weapon_image import Show_Main_Images
 from app.Utils.Main_Stats import Show_Main_Stats
 
 
-
 # load data
 df = pd.read_csv("../data/weapons_details.csv")
 

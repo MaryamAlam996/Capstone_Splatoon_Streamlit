@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
 # import os
-from app.Utils.colors import class_to_colour
-from app.Utils.colors import class_to_colour_2
+# from app.Utils.colors import class_to_colour
+# from app.Utils.colors import class_to_colour_2
 from app.Utils.Sub_image import Show_Sub_Image
 from app.Utils.Sub_Stats import Show_Sub_Stats
 # load data
@@ -29,17 +29,18 @@ w_Sub = selected_Sub_data['Sub'].iloc[0]
 Show_Sub_Image(Sub_img)
 
 
-
 # Styling for the block
 block_style = (
     f"display: inline-block; width: 100%; padding: 25px; border-radius: 8px; "
     f"background-color: {block_colour}; text-align: center;"
 )
 
+
 # Full-width block within a container
 with st.container():
     bold_text = (
-        "<p style='font-size: 24px; margin: 0; color: #ffffff; font-weight: bold;'>"
+        "<p style='font-size: 24px; margin: 0;"
+        "color:#ffffff; font-weight: bold;'>"
         "Number of weapons that use this Sub:</p>"
     )
     normal_text = (
@@ -52,6 +53,3 @@ with st.container():
     )
 
 Show_Sub_Stats(selected_Sub, block_colour, block_colour_2)
-
-
-# # st.dataframe(df)

@@ -3,6 +3,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 
+
 # function to show the images related to each selected main weapon
 def Show_Sub_Image(s_img):
     st.divider()
@@ -11,7 +12,7 @@ def Show_Sub_Image(s_img):
     st.markdown("<br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        st.image(C_img , width=300)
+        st.image(C_img, width=300)
 
     # st.image(C_img, width=300)
     st.markdown("<br>", unsafe_allow_html=True)
