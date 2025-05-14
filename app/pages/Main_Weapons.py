@@ -6,6 +6,8 @@ from app.Utils.colors import class_to_colour_2
 from app.Utils.Main_weapon_image import Show_Main_Images
 from app.Utils.Main_Stats import Show_Main_Stats
 
+
+
 # load data
 df = pd.read_csv("../data/weapons_details.csv")
 
@@ -47,6 +49,7 @@ col1, col2, col3, col4 = st.columns(4)
 cols = [col1, col2, col3, col4]
 names = ['Weapon Class', 'Sub <br>Weapon', 'Special Weapon', 'Special Points']
 
+# --- Assistance from ChatGPT ------------------------------------------
 for numb in range(4):
     with cols[numb]:
         bold_text = (
@@ -66,7 +69,7 @@ for numb in range(4):
             f"<div style='{block_style}'>{bold_text}{normal_text}</div>",
             unsafe_allow_html=True
         )
-
+# ------------------------------------------------------------------------
 st.markdown("<br>", unsafe_allow_html=True)
 
 # col_A, col_B = st.columns([3, 4])

@@ -1,3 +1,5 @@
+import base64
+import streamlit as st
 
 
 # function that returns a unique colour
@@ -122,3 +124,40 @@ def class_to_small_splat(w_class):
     else:
         big_splat = "Shooter_1.png"
     return big_splat
+
+
+# --- Assistance from ChatGPT ---------------------------------------------
+# function to encode a GIF as a base64 string
+def get_base64_gif(file_path):
+    with open(file_path, "rb") as file_:
+        contents = file_.read()
+        return base64.b64encode(contents).decode("utf-8")
+
+
+def Set_Background():
+    # the gif
+    gif_path = "data/squids.gif"
+    # convert to base64 string
+    data_url = get_base64_gif(gif_path)
+    # display as background
+    st.markdown(
+        f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/gif;base64,{data_url}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            background-color: rgba(100, 100, 100, 0.5);
+        }}
+        h1 {{
+            font-size: 100px;
+            text-align: center;
+            color: #FFFFFF;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+# -------------------------------------------------------------------------------
