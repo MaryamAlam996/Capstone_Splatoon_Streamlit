@@ -1,5 +1,8 @@
 
 
+# function that returns a unique colour
+# for each weapon class
+# to be used in visuals
 def class_to_colour(w_class):
     if w_class == "Shooter":
         block_colour = "#EB7724"
@@ -26,3 +29,65 @@ def class_to_colour(w_class):
     else:
         block_colour = "#242424"
     return block_colour
+
+
+# function that returns a unique image
+# for each class
+# large splat visuals
+def class_to_big_splat(w_class):
+    if w_class == "Shooter":
+        big_splat = "Shooter.png"
+    elif w_class == 'Blaster':
+        big_splat = "Blaster.png"
+    elif w_class == "Splatana":
+        big_splat = "Splatana.png"
+    elif w_class == "Charger":
+        big_splat = "Charger.png"
+    elif w_class == "Splatling":
+        big_splat = "Splatling.png"
+    elif w_class == "Brella":
+        big_splat = "Brella.png"
+    elif w_class == "Stringer":
+        big_splat = "Stringer.png"
+    elif w_class == "Roller":
+        big_splat = "Roller.png"
+    elif w_class == "Slosher":
+        big_splat = "Slosher.png"
+    elif w_class == "Brush":
+        big_splat = "Brush.png"
+    elif w_class == "Dualie":
+        big_splat = "Dualie.png"
+    else:
+        big_splat = "Shooter.png"
+    return big_splat
+
+
+# Another function to return a unique image
+# for each class
+# small splat visuals
+def class_to_small_splat(w_class):
+    if w_class == "Shooter":
+        big_splat = "Shooter_1.png"
+    elif w_class == 'Blaster':
+        big_splat = "Blaster_1.png"
+    elif w_class == "Splatana":
+        big_splat = "Splatana_1.png"
+    elif w_class == "Charger":
+        big_splat = "Charger_1.png"
+    elif w_class == "Splatling":
+        big_splat = "Splatling_1.png"
+    elif w_class == "Brella":
+        big_splat = "Brella_1.png"
+    elif w_class == "Stringer":
+        big_splat = "Stringer_1.png"
+    elif w_class == "Roller":
+        big_splat = "Roller_1.png"
+    elif w_class == "Slosher":
+        big_splat = "Slosher_1.png"
+    elif w_class == "Brush":
+        big_splat = "Brush_1.png"
+    elif w_class == "Dualie":
+        big_splat = "Dualie_1.png"
+    else:
+        big_splat = "Shooter_1.png"
+    return big_splat
