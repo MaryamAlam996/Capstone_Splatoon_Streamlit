@@ -9,6 +9,7 @@ from app.Utils.colors import class_to_small_splat
 
 # function to show the images related to each selected main weapon
 def Show_Main_Images(main_img, sub_img, special_img, class_img, w_class):
+    st.divider()
     # Create versions of each img with ink splat background
     M_img = Main_img(main_img, w_class)
     S_img = Sub_img(sub_img, w_class)
@@ -28,7 +29,7 @@ def Show_Main_Images(main_img, sub_img, special_img, class_img, w_class):
         st.image(S_img, width=175)
         for i in range(5):
             st.write("")
-        st.image(SW_img, width=175)     
+        st.image(SW_img, width=175)
     return None
 
 

@@ -1,27 +1,29 @@
 import pandas as pd
 import streamlit as st
-import os
+# import os
 from app.Utils.colors import class_to_colour
 from app.Utils.colors import class_to_colour_2
 from app.Utils.Main_weapon_image import Show_Main_Images
 from app.Utils.Main_Stats import Show_Main_Stats
 
-    
 # load data
 df = pd.read_csv("../data/weapons_details.csv")
 
 weapon_names = df[['Name', 'Class']]
 weapon_classes = df['Class'].unique()
 
-selected_classes = st.multiselect("Filter by class:", weapon_classes, default=weapon_classes)
+selected_classes = st.multiselect("Filter by class:",
+                                  weapon_classes, default=weapon_classes)
 
 weapon_names = df[df['Class'].isin(selected_classes)][['Name', 'Class']]
 
 selected_weapon = st.selectbox("Select a weapon:", weapon_names)
 selected_weapon_data = df[df['Name'] == selected_weapon]
 
-st.markdown("<br>", unsafe_allow_html=True)
-st.markdown(f"<h1 style='text-align: center;'>{selected_weapon}</h1>", unsafe_allow_html=True)
+st.divider()
+# st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center;'>{selected_weapon}</h1>",
+            unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
 # find fields
@@ -43,17 +45,27 @@ all_w = [w_class, w_sub, w_special, w_sp]
 # Create columns
 col1, col2, col3, col4 = st.columns(4)
 cols = [col1, col2, col3, col4]
-names = ['Weapon Class', 'Sub <br>Weapon','Special Weapon','Special Points']
+names = ['Weapon Class', 'Sub <br>Weapon', 'Special Weapon', 'Special Points']
 
-for numb in range(0, 4):
+for numb in range(4):
     with cols[numb]:
-        st.markdown(f"""
-            <div style="display: inline-block; padding: 25px; border-radius: 8px; 
-                        background-color: {block_colour}; text-align: center;">
-                <p style="font-size: 24px; margin: 0; color: #ffffff; font-weight: bold;">{names[numb]}:</p>
-                <p style="font-size: 24px; margin: 0; color: #ffffff;">{all_w[numb]}</p>
-            </div>
-        """, unsafe_allow_html=True)
+        bold_text = (
+            "<p style='font-size: 24px; margin: 0; color: #ffffff; "
+            "font-weight: bold;'>"
+            f"{names[numb]}:</p>"
+        )
+        normal_text = (
+            f"<p style='font-size: 24px; margin: 0; color: #ffffff;'>"
+            f"{all_w[numb]}</p>"
+        )
+        block_style = (
+            f"display: inline-block; padding: 25px; border-radius: 8px; "
+            f"background-color: {block_colour}; text-align: center;"
+        )
+        st.markdown(
+            f"<div style='{block_style}'>{bold_text}{normal_text}</div>",
+            unsafe_allow_html=True
+        )
 
 st.markdown("<br>", unsafe_allow_html=True)
 
@@ -69,7 +81,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # st.markdown("<br><br>", unsafe_allow_html=True)
 
-# col_0, col_A, col_B = st.columns([0.5, 4, 2])  # Adjust the column width ratio (3:4)
+# col_0, col_A, col_B = st.columns([0.5, 4, 2])
 
 # # Main image
 # with col_A:
@@ -85,10 +97,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 #         st.write("")
 #     st.image(special_img, width=125)
 
-#st.markdown("<br><br>", unsafe_allow_html=True)
+# st.markdown("<br><br>", unsafe_allow_html=True)
 
 Show_Main_Images(main_img, sub_img, special_img, class_img, w_class)
 
-#st.markdown("<br><br>", unsafe_allow_html=True)
+# st.markdown("<br><br>", unsafe_allow_html=True)
 
 Show_Main_Stats(selected_weapon, block_colour, block_colour_2)
