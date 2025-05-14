@@ -1,0 +1,5 @@
+[theme]
+primaryColor = "purple"           # Set the primary color of the app
+backgroundColor = "#d5d5e0"      # Set the background color of the app
+secondaryBackgroundColor = "#e0e0e0"  # Secondary background color
+font = "sans serif"               # Set the font
