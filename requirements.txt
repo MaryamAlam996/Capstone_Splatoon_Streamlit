@@ -43,6 +43,7 @@ parso==0.8.4
 pathspec==0.12.1
 pillow==11.2.1
 platformdirs==4.3.7
+plotly==6.0.1
 pluggy==1.5.0
 port-for==0.7.4
 prompt_toolkit==3.0.51
@@ -72,6 +73,7 @@ rpds-py==0.24.0
 six==1.17.0
 smmap==5.0.2
 soupsieve==2.7
+-e git+https://github.com/MaryamAlam996/Capstone_Splatoon_Streamlit.git@781eea2627b4a5718a1d9a0e895a9dfb7d0921b7#egg=Splatoon_Streamlit
 sqlfluff==3.3.1
 stack-data==0.6.3
 streamlit==1.45.0
