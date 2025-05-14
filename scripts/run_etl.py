@@ -7,7 +7,7 @@ from etl.extract.df_and_csv import extract_to_csv
 from etl.transform.transform import transform_data
 from etl.load.load import load_data
 
-DO_EXTRACT = False
+DO_EXTRACT = True
 
 
 def main():
