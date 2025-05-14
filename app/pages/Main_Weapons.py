@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import os
 from app.Utils.colors import class_to_colour
+from app.Utils.colors import class_to_colour_2
 from app.Utils.Main_weapon_image import Show_Main_Images
 from app.Utils.Main_Stats import Show_Main_Stats
 
@@ -19,8 +20,9 @@ weapon_names = df[df['Class'].isin(selected_classes)][['Name', 'Class']]
 selected_weapon = st.selectbox("Select a weapon:", weapon_names)
 selected_weapon_data = df[df['Name'] == selected_weapon]
 
-
+st.markdown("<br>", unsafe_allow_html=True)
 st.markdown(f"<h1 style='text-align: center;'>{selected_weapon}</h1>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 
 # find fields
 w_class = selected_weapon_data['Class'].iloc[0]
@@ -35,7 +37,7 @@ class_img = selected_weapon_data['Class_Img'].iloc[0]
 # st.markdown(f"## {w_class}")
 # call function to return a colour based on weapon class
 block_colour = class_to_colour(w_class)
-
+block_colour_2 = class_to_colour_2(w_class)
 
 all_w = [w_class, w_sub, w_special, w_sp]
 # Create columns
@@ -89,4 +91,4 @@ Show_Main_Images(main_img, sub_img, special_img, class_img, w_class)
 
 #st.markdown("<br><br>", unsafe_allow_html=True)
 
-Show_Main_Stats(selected_weapon)
+Show_Main_Stats(selected_weapon, block_colour, block_colour_2)

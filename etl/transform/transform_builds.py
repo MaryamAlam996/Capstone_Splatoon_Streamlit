@@ -157,6 +157,7 @@ def Aggregate_modes_df(builds_df):
 # for all builds and also
 # group by weapon
 def total_modes(modes_df):
+    WEAPONS_df = modes_df.copy()
     # drop columns
     All_df = modes_df.drop(['Weapon_Name', 'Game_Modes'], axis=1)
     # calc totals over all builds
@@ -164,9 +165,10 @@ def total_modes(modes_df):
     # convert to df
     ALL_totals_df = ALL_totals.to_frame().T
     # -----------------
-    WEAPONS_df = modes_df
     # group by weapon name and calc totals for each
-    WEAPON_totals_df = WEAPONS_df.groupby('Weapon_Name').sum(numeric_only=True)
+    WEAPON_totals_df = WEAPONS_df.groupby('Weapon_Name').sum(
+        numeric_only=True
+    ).reset_index()
     return ALL_totals_df, WEAPON_totals_df
 
 
