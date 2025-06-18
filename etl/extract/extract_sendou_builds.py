@@ -132,7 +132,7 @@ def scrape_all_builds(path_soup, weapon_list, count):
     # message to show what weapon we are currently obtaining info from
     print("Extracting builds for: \x1b[34m" +
           weapon_list[count].ljust(30) + "\x1b[0m[" +
-          str(int(count)+1).rjust(3) + "/130]")
+          str(int(count)+1).rjust(3) + "/160]")
     # -------------------------------------------------------------------
     # finds all the builds on the page
     # updated!
