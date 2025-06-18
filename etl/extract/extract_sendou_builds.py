@@ -135,7 +135,8 @@ def scrape_all_builds(path_soup, weapon_list, count):
           str(int(count)+1).rjust(3) + "/130]")
     # -------------------------------------------------------------------
     # finds all the builds on the page
-    build_entries = path_soup.find_all('div',  class_='build')
+    # updated!
+    build_entries = path_soup.find_all('div',  class_='_card_vj4b0_1')
     # loops through these
     for build in build_entries:
         # scrape each build
@@ -164,7 +165,7 @@ def scrape_a_build(build):
 def extract_modes(build):
     mode_list = []  # create empty list to store modes
     # find all the modes
-    modes = build.find('div', class_='build__modes')
+    modes = build.find('div', class_='_modes_vj4b0_53')
     #  check if there are any modes listed
     if modes is None:
         # if none, add this message instead
@@ -188,7 +189,7 @@ def extract_modes(build):
 # function to extract ability info from a build
 def extract_abilities(build):
     # find all abilities
-    abilities = build.find_all('div', class_="build__ability readonly")
+    abilities = build.find_all('div', class_="_ability_1o4uo_1 _readonly_1o4uo_28")
     ability_list = []  # create empty list to store abilities
     # loop through the found abilities
     for a in abilities:
